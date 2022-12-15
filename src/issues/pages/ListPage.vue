@@ -7,12 +7,12 @@
     <div class="row">
       <div class="col-xs-12 col-md-4">
         <!-- TODO: Filters -->
-        <!-- FilterSelector -->
+        <FilterSelector />
       </div>
       <div class="col-xs-12 col-md-8">
         <!-- TODO: Loader -->
         <BaseLoaderSpinner message="Loading..." />
-        <!-- TODO: IssueList - Array of IssueCard -->
+        <IssueList />
       </div>
     </div>
   </div>
@@ -20,6 +20,8 @@
 
 <script setup lang="ts">
 import BaseLoaderSpinner from 'src/shared/components/BaseLoaderSpinner.vue';
+import FilterSelector from 'src/issues/components/filter-selector/FilterSelector.vue';
+import IssueList from 'src/issues/components/issue-list/IssueList.vue';
 </script>
 
 <style scoped></style>
