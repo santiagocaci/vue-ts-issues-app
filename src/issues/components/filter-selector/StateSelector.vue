@@ -1,6 +1,7 @@
 <template>
   <div class="q-pa-md">
     <q-btn-toggle
+      v-model="issuesStore.state"
       toggle-color="primary"
       push
       spread
@@ -13,6 +14,10 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useIssuesStore } from 'src/stores/issues-store';
+
+const issuesStore = useIssuesStore();
+</script>
 
 <style scoped></style>
