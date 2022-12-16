@@ -5,7 +5,11 @@ import { githubApi } from 'src/api/githubApi';
 import { Label } from 'src/issues/types/label';
 
 const getLabels = async (): Promise<Label[]> => {
-  const { data } = await githubApi<Label[]>('/labels?per_page=100');
+  const { data } = await githubApi<Label[]>('/labels?per_page=100', {
+    headers: {
+      Authorization: null,
+    },
+  });
   return data;
 };
 
