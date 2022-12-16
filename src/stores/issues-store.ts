@@ -1,22 +1,30 @@
-import { defineStore } from 'pinia';
 import { ref } from 'vue';
+import { defineStore } from 'pinia';
 
-enum State {
-  All = '',
-  Open = 'open',
-  Closed = 'closed',
-}
+const OState = {
+  All: '',
+  Open: 'open',
+  Closed: 'closed',
+} as const;
+type State = typeof OState[keyof typeof OState];
 
 export const useIssuesStore = defineStore('issues', () => {
   // State
-  const state = ref<State>(State.All); // TODO:  Define type of state
+  const state = ref<State>('');
   const labels = ref<string[]>([]);
 
   // Actions
   function toggleLabel(labelName: string) {
-    // TODO: Implement toggleLabel
-    throw new Error('toggleLabel not implemented');
+    if (labels.value.includes(labelName)) {
+      labels.value = labels.value.filter((label) => label !== labelName);
+      return;
+    }
+
+    labels.value.push(labelName);
   }
+
+  // Getters
+
   return {
     // State
     labels,

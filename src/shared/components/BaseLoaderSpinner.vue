@@ -16,6 +16,7 @@ withDefaults(defineProps<Props>(), {
   color: 'primary',
   size: '3rem',
   thickness: 5,
+  message: '',
 });
 </script>
 

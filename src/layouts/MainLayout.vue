@@ -17,7 +17,7 @@
       </q-toolbar>
     </q-header>
 
-    <q-drawer class="bg-dark text-white" v-model="leftDrawerOpen" bordered>
+    <q-drawer v-model="leftDrawerOpen" class="bg-dark text-white" bordered>
       <q-list>
         <q-item-label class="text-white" header> Essential Links </q-item-label>
 
