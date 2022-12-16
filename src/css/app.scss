@@ -1,4 +1,9 @@
 // app global css in SCSS form
+// *,
+// *:before,
+// *:after {
+//   box-sizing: border-box;
+// }
 h1 {
   font-size: 25px;
   margin: 0;
@@ -21,4 +26,20 @@ blockquote,
 pre,
 code {
   word-break: break-all !important;
+}
+
+pre {
+  white-space: pre-wrap; /* Since CSS 2.1 */
+  white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+  white-space: -pre-wrap; /* Opera 4-6 */
+  white-space: -o-pre-wrap; /* Opera 7 */
+  word-wrap: break-word; /* Internet Explorer 5.5+ */
+}
+
+.markdown-css {
+  position: relative;
+}
+
+.markdown-css img {
+  width: 100%;
 }

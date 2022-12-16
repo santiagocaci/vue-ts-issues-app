@@ -11,8 +11,11 @@
       </div>
       <div class="col-xs-12 col-md-8">
         <!-- TODO: Loader -->
-        <BaseLoaderSpinner message="Loading..." />
-        <IssueList />
+        <BaseLoaderSpinner
+          v-if="issuesQuery.isLoading.value"
+          message="Loading..."
+        />
+        <IssueList v-else :issues="issuesQuery.data?.value || []" />
       </div>
     </div>
   </div>
@@ -22,6 +25,9 @@
 import BaseLoaderSpinner from 'src/shared/components/BaseLoaderSpinner.vue';
 import FilterSelector from 'src/issues/components/filter-selector/FilterSelector.vue';
 import IssueList from 'src/issues/components/issue-list/IssueList.vue';
+import useIssues from 'src/issues/composables/useIssues';
+
+const { issuesQuery } = useIssues();
 </script>
 
 <style scoped></style>
