@@ -2,6 +2,14 @@
 
 A Quasar Project
 
+## Install Quasar CLI
+
+```bash
+yarn global add @quasar/cli
+# or
+npm i -g @quasar/cli
+```
+
 ## Install the dependencies
 
 ```bash
@@ -9,6 +17,10 @@ yarn
 # or
 npm install
 ```
+
+### Configure ENV
+
+Rename **.env.example** file to **.env**
 
 ### Start the app in development mode (hot-code reloading, error reporting, etc.)
 
