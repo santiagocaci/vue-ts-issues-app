@@ -20,10 +20,10 @@
 import useLabels from 'src/issues/composables/useLabels';
 import BaseLoaderSpinner from 'src/shared/components/BaseLoaderSpinner.vue';
 
-const { labelsQuery, toggleLabel, selectedLabels } = useLabels();
+const { labelsQuery, toggleLabel, labels: labelStore } = useLabels();
 const { data: labels, isLoading } = labelsQuery;
 
-const isSelected = (name: string) => selectedLabels.value.includes(name);
+const isSelected = (name: string) => labelStore.value.includes(name);
 </script>
 
 <style scoped></style>

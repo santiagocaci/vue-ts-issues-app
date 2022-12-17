@@ -4,7 +4,8 @@ import { useIssuesStore } from 'src/stores/issues-store';
 const useStore = () => {
   const issuesStore = useIssuesStore();
   const { labels, state } = storeToRefs(issuesStore);
-  return { labels, state };
+  const { toggleLabel } = issuesStore;
+  return { labels, state, toggleLabel };
 };
 
 export default useStore;

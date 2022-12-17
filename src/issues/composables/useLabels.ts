@@ -1,8 +1,8 @@
 import { computed } from 'vue';
 import { useQuery } from '@tanstack/vue-query';
-import { useIssuesStore } from 'src/stores/issues-store';
 import { githubApi } from 'src/api/githubApi';
 import { Label } from 'src/issues/types/label';
+import useStore from './useStore';
 
 const getLabels = async (): Promise<Label[]> => {
   const { data } = await githubApi<Label[]>('/labels?per_page=100', {
@@ -14,7 +14,8 @@ const getLabels = async (): Promise<Label[]> => {
 };
 
 const useLabels = () => {
-  const issuesStore = useIssuesStore();
+  // const issuesStore = useIssuesStore();
+  const store = useStore();
 
   const labelsQuery = useQuery(['labels'], getLabels, {
     // 1 hour
@@ -23,11 +24,12 @@ const useLabels = () => {
 
   return {
     labelsQuery,
+    labels: store.labels,
 
     // selectedLabels: computed(() => issuesStore.labels),
-    selectedLabels: computed(() => issuesStore.labels),
+    selectedLabels: computed(() => store.labels),
     // Methods
-    toggleLabel: (labelName: string) => issuesStore.toggleLabel(labelName),
+    toggleLabel: (labelName: string) => store.toggleLabel(labelName),
   };
 };
 
