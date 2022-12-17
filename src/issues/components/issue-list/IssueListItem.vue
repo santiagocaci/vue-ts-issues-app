@@ -1,5 +1,16 @@
 <template>
-  <q-card class="text-black col-12 q-mb-md" flat bordered>
+  <q-card
+    class="text-black col-12 q-mb-md"
+    flat
+    bordered
+    @mouseenter="setIssueCacheData(issue)"
+  >
+    <!-- <q-card
+    class="text-black col-12 q-mb-md"
+    flat
+    bordered
+    @mouseenter="prefetchIssue(issue.number)"
+  > -->
     <q-item>
       <q-item-section avatar>
         <q-avatar>
@@ -70,6 +81,7 @@
 
 <script setup lang="ts">
 import VueMarkdown from 'vue-markdown-render';
+import useIssue from 'src/issues/composables/useIssue';
 import { timeSince } from 'src/shared/helpers/time-since';
 import { type Issue } from 'src/issues/types/issue';
 
@@ -77,7 +89,11 @@ type Props = {
   issue: Issue;
 };
 
-defineProps<Props>();
+const props = defineProps<Props>();
+
+const { setIssueCacheData } = useIssue(props.issue.number, {
+  autoload: false,
+});
 </script>
 
 <style scoped></style>
