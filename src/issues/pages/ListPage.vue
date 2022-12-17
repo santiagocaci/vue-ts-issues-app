@@ -15,17 +15,21 @@
           v-if="issuesQuery.isLoading.value"
           message="Loading..."
         />
-        <IssueList v-else :issues="issuesQuery.data?.value || []" />
+        <IssueList
+          v-else-if="issuesQuery.data.value"
+          :issues="issuesQuery.data?.value || []"
+        />
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import useIssues from 'src/issues/composables/useIssues';
+
 import BaseLoaderSpinner from 'src/shared/components/BaseLoaderSpinner.vue';
 import FilterSelector from 'src/issues/components/filter-selector/FilterSelector.vue';
 import IssueList from 'src/issues/components/issue-list/IssueList.vue';
-import useIssues from 'src/issues/composables/useIssues';
 
 const { issuesQuery } = useIssues();
 </script>

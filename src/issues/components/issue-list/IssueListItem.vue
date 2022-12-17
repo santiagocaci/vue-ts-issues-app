@@ -46,7 +46,7 @@
 
     <q-separator />
 
-    <q-item-section class="q-pa-md markdown-css">
+    <q-item-section v-if="issue.body" class="q-pa-md markdown-css">
       <vue-markdown :source="issue.body" />
     </q-item-section>
 

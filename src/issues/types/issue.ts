@@ -27,7 +27,7 @@ export interface Issue {
   active_lock_reason?: any;
   draft?: boolean;
   pull_request?: Pullrequest;
-  body: string;
+  body: string | null;
   reactions: Reactions;
   timeline_url: string;
   performed_via_github_app?: any;
